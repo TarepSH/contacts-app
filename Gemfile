@@ -32,6 +32,9 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 #twitter-bootstrap-rails gem for Bootstrap CSS toolkit freamwork for Rails 4, 3.x Asset
 gem 'twitter-bootstrap-rails', '~> 4.0'
 
+#bootstrap_form is a rails gem form builder that makes it easy to create Twitter Bootstrap form
+gem 'bootstrap_form', '~> 2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

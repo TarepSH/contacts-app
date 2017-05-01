@@ -1,4 +1,4 @@
-<%= form_for(contacts_info) do |f| %>
+<%= bootstrap_form_for(contacts_info) do |f| %>
   <% if contacts_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contacts_info.errors.count, "error") %> prohibited this contacts_info from being saved:</h2>
