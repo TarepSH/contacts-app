@@ -10,45 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329112921) do
+ActiveRecord::Schema.define(version: 20170501204724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: :cascade do |t|
-    t.integer  "team_id"
-    t.integer  "round_id"
-    t.string   "team_catagory"
-    t.integer  "game_point"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "team_id_id"
-    t.float    "game_time"
-    t.index ["team_id_id"], name: "index_games_on_team_id_id", using: :btree
-  end
-
-  create_table "rounds", force: :cascade do |t|
-    t.integer  "round_map"
-    t.integer  "round_room"
+  create_table "contacts_infos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "compay"
+    t.text     "address"
+    t.integer  "phone"
+    t.date     "birthda"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string   "team_name"
-    t.string   "team_school"
-    t.string   "team_category"
-    t.integer  "team_point"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "games_play"
-    t.integer  "team_group"
-    t.float    "best_time"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
+    t.string   "user_name",              default: "",    null: false
+    t.boolean  "admin",                  default: false, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -59,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170329112921) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

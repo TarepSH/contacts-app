@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.5'
 #Use gem install PostgreSQL 
 gem 'pg', '~> 0.20.0'
 
+#Use devise to authentication systeam for our app for user account
+gem 'devise', '~> 4.2', '>= 4.2.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
