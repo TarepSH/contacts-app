@@ -14,8 +14,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-        @user = current_user
-
+    @user = current_user
     @contact = @user.contacts.new
   end
 

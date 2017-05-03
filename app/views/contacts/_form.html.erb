@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([@user, @user.contacts.build]) do |f| %>
+<%= bootstrap_form_for([@user, @user.contacts.build], layout: :inline) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
