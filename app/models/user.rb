@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   #user have so many contacts_infos
-  has_many :contacts_infos
+  has_many :contacts
+  accepts_nested_attributes_for :contacts
+
 end

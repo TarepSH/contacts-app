@@ -14,7 +14,9 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+        @user = current_user
+
+    @contact = @user.contacts.new
   end
 
   # GET /contacts/1/edit
@@ -24,11 +26,12 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-
+    @user = current_user
+    @contact = @user.contacts.create(contact_params)
+    
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to user_contacts_path, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -64,11 +67,11 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = @usre.Contact.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :company, :address, :phone, :birthday, :user_id)
+      params.require(:contact).permit(:name, :email, :company, :address, :phone, :birthday, :user_id, :id)
     end
 end
