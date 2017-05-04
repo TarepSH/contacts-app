@@ -6,51 +6,77 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'freelancer.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
+<body id="page-top" class="index">
+<div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Contacts App</a>
+            </div>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%=link_to "Contacts App", root_path, class:"navbar-brand"%>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%=link_to "Home", root_path%></li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-       <% if current_user %>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                           <% if current_user %>
        <p class="navbar-text"><%= current_user.email %></p>
-
-        <%= menu_item "Log Out", destroy_user_session_path, :method => :delete %>
+               <%= menu_item "Log Out", destroy_user_session_path, :method => :delete %>
     <% else %>
+                 <%= menu_item "Sing Up", new_user_registration_path %>
+
              <%= menu_item "Log in", new_user_session_path %>
 
+
         <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+                 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
 
 <%= render partial: "shared/flash_messages", flash: flash %> 
 
-<div class="container-fluid">
     <%= yield %>
-    </div>
-    <div class="navbar container-fluid navbar-default navbar-fixed-bottom"><p class="navbar-text">Contacts App - Tarek </p></div>
+    
+
+    <!-- Theme JavaScript -->
+    <%= javascript_include_tag 'freelancer.min', 'data-turbolinks-track': 'reload' %>
+     <!-- jQuery -->
+    <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Bootstrap Core JavaScript -->
+        <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track': 'reload' %>
 
   </body>
+
 </html>

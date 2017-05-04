@@ -7,5 +7,7 @@
 
  *= require bootstrap_and_overrides
  *= require rails_bootstrap_forms
+ *= require font-awesome
+
 
 */
