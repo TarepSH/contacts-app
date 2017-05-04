@@ -17,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% @contacts.each do |contact| %>
+    <% @contact.each do |contact| %>
       <tr>
         <td><%= contact.name %></td>
         <td><%= contact.email %></td>
@@ -26,9 +26,9 @@
         <td><%= contact.phone %></td>
         <td><%= contact.birthday %></td>
         <td><%= contact.user_id %></td>
-        <td><%# link_to 'Show', contact %></td>
-        <td><%# link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%# link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
