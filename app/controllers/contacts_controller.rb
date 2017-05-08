@@ -11,9 +11,6 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
-          @user = current_user.id
-      @contact = @user.contacts.find(params[:id])
-
   end
 
   # GET /contacts/new
@@ -48,7 +45,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to root_path, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to user_contacts_path, notice: 'Contact was successfully updated.' }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -70,6 +67,9 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
+      @user = current_user.id
+      @contact = Contact.where(user_id: @user)
+      @contact = @contact.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
