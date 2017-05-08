@@ -11,6 +11,9 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+          @user = current_user.id
+      @contact = @user.contacts.find(params[:id])
+
   end
 
   # GET /contacts/new
@@ -67,7 +70,6 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = @usre.Contact.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

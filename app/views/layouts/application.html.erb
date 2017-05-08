@@ -35,7 +35,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <% if current_user %>
-                <%=link_to "Contacts App", user_contacts_path, class: "navbar-brand"%>
+                <%=link_to "Contacts App", user_contacts_path(@current_user.id), class: "navbar-brand"%>
                     <% else %>
                 <%=link_to "Contacts App", root_path, class: "navbar-brand"%>
                 <% end %>
