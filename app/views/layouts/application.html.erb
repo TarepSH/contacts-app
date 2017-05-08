@@ -34,9 +34,12 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
+                <% if current_user %>
+                <%=link_to "Contacts App", user_contacts_path, class: "navbar-brand"%>
+                    <% else %>
                 <%=link_to "Contacts App", root_path, class: "navbar-brand"%>
+                <% end %>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
