@@ -43,7 +43,7 @@
       <th>Company</th>
       <th>Address</th>
       <th>phone</th>
-      <th>Birthday</th>
+      <th>Age</th>
       <th>edit</th>
     </tr>
   </thead>
@@ -57,7 +57,7 @@
         <td><%= contact.company %></td>
         <td><%= contact.address %></td>
         <td><%= contact.phone %></td>
-        <td><%= contact.birthday %></td>
+        <td><%= Time.now.year - contact.birthday.year %></td>
         <td> <%= link_to 'edit', edit_user_contact_path(@user, contact), class:"btn btn-default"%></td>
       </tr>
     <% end %>
