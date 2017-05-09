@@ -1,3 +1,4 @@
 class Contact < ApplicationRecord
-  belongs_to :user
+ acts_as_paranoid
+ belongs_to :user
 end

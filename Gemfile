@@ -35,6 +35,9 @@ gem 'twitter-bootstrap-rails', '~> 4.0'
 #bootstrap_form is a rails gem form builder that makes it easy to create Twitter Bootstrap form
 gem 'bootstrap_form', '~> 2.3'
 
+#for Soft-delet
+gem 'paranoia', '~> 2.1', '>= 2.1.5'
+
 #font awesome gem 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 group :development, :test do

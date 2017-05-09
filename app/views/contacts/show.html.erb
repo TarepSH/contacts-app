@@ -1,3 +1,4 @@
+<div class="text-center">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,10 +31,5 @@
   <%= @contact.birthday %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @contact.user.id %>
-</p>
-
-<%# link_to 'Edit', edit_contact_path(@contact) %> |
-<%# link_to 'Back', contacts_path %>
+<%= link_to 'Back', user_contacts_path %>
+</div>

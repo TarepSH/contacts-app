@@ -40,5 +40,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  </br>
+  <%= link_to 'Destroy',  user_contact_path,  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+
 <% end %>
 </div>
